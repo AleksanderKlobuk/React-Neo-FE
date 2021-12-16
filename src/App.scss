@@ -1,3 +1,5 @@
+$white: #fff;
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,28 +19,28 @@
 }
 
 .services {
-  background-image: url('/src/images/img-2.jpg');
+  background-image: url('./assets/images/img-2.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  color: #fff;
+  color: $white;
   font-size: 100px;
 }
 
 .products {
-  background-image: url('/src/images/img-1.jpg');
+  background-image: url('./assets/images/img-1.jpg');
   background-position: center;
   background-size: fill;
   background-repeat: no-repeat;
-  color: #fff;
+  color: $white;
   font-size: 100px;
 }
 
 .sign-up {
-  background-image: url('/src/images/img-8.jpg');
+  background-image: url('./assets/images/img-8.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  color: #fff;
+  color: $white;
   font-size: 100px;
 }

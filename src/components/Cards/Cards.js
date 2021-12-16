@@ -1,6 +1,11 @@
 import React from 'react';
-import './Cards.css';
-import CardItem from './CardItem';
+import '../../Styles/Cards.css';
+import CardItem from '../CardItem/CardItem';
+import image9 from '../../assets/images/img-9.jpg'
+import image2 from '../../assets/images/img-2.jpg'
+import image3 from '../../assets/images/img-3.jpg'
+import image4 from '../../assets/images/img-4.jpg'
+import image5 from '../../assets/images/img-5.jpg'
 
 function Cards() {
   return (
@@ -10,13 +15,13 @@ function Cards() {
         <div className='cards__wrapper'>
           <ul className='cards__items'>
             <CardItem
-              src='./imagess/img-9.jpg'
+              src={image9}
               text='Show yourself a path to follow during the day'
               label='To Do List'
               path='/products'
             />
             <CardItem
-              src='/images/img-2.jpg'
+              src={image2}
               text='Control Your Expenditures'
               label='Budget Planner'
               path='/products'
@@ -24,19 +29,19 @@ function Cards() {
           </ul>
           <ul className='cards__items'>
             <CardItem
-              src='/images/img-3.jpg'
+              src={image3}
               text='Be Prepared to Shopping and Spend Less'
               label='Shopping List'
               path='/products'
             />
             <CardItem
-              src='/images/img-4.jpg'
+              src={image4}
               text='Be On Time With Weather Updates'
               label='Weather'
               path='/products'
             />
             <CardItem
-              src='/images/img-8.jpg'
+              src={image5}
               text='Keep All Website You Need Very Close'
               label='Favorite Websites'
               path='/sign-up'
