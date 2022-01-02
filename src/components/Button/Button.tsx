@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from "react";
 import '../../Styles/Button.css';
 import { Link } from 'react-router-dom';
 
@@ -6,17 +6,25 @@ const STYLES = ['btn--primary', 'btn--outline', 'btn--test'];
 
 const SIZES = ['btn--medium', 'btn--large'];
 
-export const Button = ({
-  children,
-  type,
-  onClick,
-  buttonStyle,
-  buttonSize
+interface Props {
+    children:any,
+    type:any,
+    onClick:any,
+    buttonStyle:any,
+    buttonSize:any,
+    className:any,
+}
+
+export const Button: FC<Props> = ({
+    children,
+    type,
+    onClick,
+    buttonStyle,
+    buttonSize
 }) => {
   const checkButtonStyle = STYLES.includes(buttonStyle)
     ? buttonStyle
     : STYLES[0];
-
   const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
   return (

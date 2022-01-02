@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import '../../Styles/App.css';
 import { Button } from '../Button/Button';
 import '../../Styles/HeroSection.css';
@@ -10,14 +10,14 @@ function HeroSection() {
       <h1>Make Your Time Organized</h1>
       <p>What are you waiting for?</p>
       <div className='hero-btns'>
-        <Button
+        <Button type={undefined} onClick={undefined}
           className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
         >
           GET STARTED
         </Button>
-        <Button
+        <Button type={undefined} 
           className='btns'
           buttonStyle='btn--primary'
           buttonSize='btn--large'
