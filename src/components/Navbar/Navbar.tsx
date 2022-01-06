@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '../Button/Button';
 import { Link } from 'react-router-dom';
 import '../../Styles/Navbar.css';
+/*import { useSelector } from 'react-redux';
+import { selectUser } from '../../features/userSlice';*/
 
 function Navbar() {
+  /*const user = useSelector(selectUser);*/
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -38,7 +41,7 @@ function Navbar() {
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
               <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                Home
+                Home 
               </Link>
             </li>
             <li className='nav-item'>
@@ -66,12 +69,12 @@ function Navbar() {
                 className='nav-links-mobile'
                 onClick={closeMobileMenu}
               >
-                Sign Up
+                Login Page 
               </Link>
             </li>
           </ul>
           {button && <Button buttonStyle='btn--outline' 
-          type={undefined} onClick={undefined} buttonSize={undefined} className={undefined}  >SIGN UP</Button>}
+          type={undefined} onClick={undefined} buttonSize={undefined} className={undefined}  >Login Page</Button>}
         </div>
       </nav>
     </>
