@@ -10,14 +10,14 @@ function HeroSection() {
       <h1>Make Your Time Organized</h1>
       <p>What are you waiting for?</p>
       <div className='hero-btns'>
-        <Button type={undefined} onClick={undefined}
+        <Button  
           className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
         >
           GET STARTED
         </Button>
-        <Button type={undefined} 
+        <Button 
           className='btns'
           buttonStyle='btn--primary'
           buttonSize='btn--large'

@@ -22,7 +22,7 @@ function Footer() {
               placeholder='Your Email'
             />
             
-            <Button buttonStyle='btn--outline' className={undefined} type={undefined} onClick={undefined} buttonSize={undefined}>Subscribe</Button>
+            <Button buttonStyle='btn--outline' >Subscribe</Button>
           </form>
         </div>
       </section>

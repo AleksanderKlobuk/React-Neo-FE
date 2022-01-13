@@ -2,11 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '../Button/Button';
 import { Link } from 'react-router-dom';
 import '../../Styles/Navbar.css';
-/*import { useSelector } from 'react-redux';
-import { selectUser } from '../../features/userSlice';*/
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../features/userSlice';
+
 
 function Navbar() {
-  /*const user = useSelector(selectUser);*/
+const user = useSelector(selectUser);
+
+
+
+
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -62,7 +67,15 @@ function Navbar() {
                 Products
               </Link>
             </li>
-
+            <li className='nav-item'>
+              <Link
+                to='/user_name'
+                className='nav-links'
+                onClick={closeMobileMenu}
+              >
+                User: {user.name}
+              </Link>
+            </li>
             <li>
               <Link
                 to='/sign-up'
@@ -74,7 +87,7 @@ function Navbar() {
             </li>
           </ul>
           {button && <Button buttonStyle='btn--outline' 
-          type={undefined} onClick={undefined} buttonSize={undefined} className={undefined}  >Login Page</Button>}
+          >Login Page</Button>}
         </div>
       </nav>
     </>

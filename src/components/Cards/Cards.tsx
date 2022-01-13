@@ -18,7 +18,7 @@ function Cards() {
               src={image9}
               text='Show yourself a path to follow during the day'
               label='To Do List'
-              path='/products'
+              path='/todolist'
             />
             <CardItem
               src={image2}
