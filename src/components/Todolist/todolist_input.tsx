@@ -1,7 +1,6 @@
 import React,{useRef} from 'react'
 import "../../Styles/todolist_input.css"
 
-
 interface props {
     todo: string;
     setTodo: React.Dispatch<React.SetStateAction<string>>;
@@ -27,7 +26,7 @@ interface props {
           onChange={(e) => setTodo(e.target.value)}
           className="input__box"
         />
-        <button type="submit" className="input_submit">
+        <button data-testid='submit-button' type="submit" className="input_submit">
           GO
         </button>
       </form>
