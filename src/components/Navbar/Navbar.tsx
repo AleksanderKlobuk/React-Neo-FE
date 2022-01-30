@@ -67,27 +67,10 @@ const user = useSelector(selectUser);
                 Products
               </Link>
             </li>
-            <li className='nav-item'>
-              <Link
-                to='/user_name'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                User: {user.name}
-              </Link>
-            </li>
-            <li>
-              <Link
-                to='/sign-up'
-                className='nav-links-mobile'
-                onClick={closeMobileMenu}
-              >
-                Login Page 
-              </Link>
-            </li>
+
           </ul>
           {button && <Button buttonStyle='btn--outline' 
-          >Login Page</Button>}
+          >{user ? ("Welcome: " + user.name) : "Login Page"} </Button>}
         </div>
       </nav>
     </>
