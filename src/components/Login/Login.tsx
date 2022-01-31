@@ -1,3 +1,4 @@
+/*import axios from 'axios';*/
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../features/userSlice';
@@ -11,7 +12,7 @@ const SignUp=()=> {
 
   async function registerUser(event:any){
     event.preventDefault();
-    const response = await fetch("http://localhost:1000/api/register",{
+    const response = await fetch("http://localhost:5000/users",{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
@@ -29,6 +30,7 @@ const SignUp=()=> {
 
   const handleSubmit = (e:any) => {
     e.preventDefault();
+    /*axios.post("http://localhost:5000/users",{name:name,email:email,password:password});*/
  
     dispatch(
       login({
