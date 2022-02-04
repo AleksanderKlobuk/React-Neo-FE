@@ -38,7 +38,7 @@ function Cards() {
               src={image4}
               text='Be On Time With Weather Updates'
               label='Weather'
-              path='/products'
+              path='/weather'
             />
             <CardItem
               src={image5}

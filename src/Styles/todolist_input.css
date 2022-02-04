@@ -1,18 +1,19 @@
 .input {
   display: flex;
   width: 90%;
-  position: relative;
-  align-items: center;
+  position: relative; 
 }
 
 .input__box {
+
   width: 100%;
-  border-radius: 50px;
+  border-radius: 38px;
   padding: 20px 30px;
   font-size: 25px;
   border: none;
-  transition: 0.2s;
-  box-shadow: inset 0 0 5px black;
+  transition: 0.1s;
+  box-shadow: inset 0 0 3px black;
+
 }
 
 .input__box:focus {
@@ -40,15 +41,16 @@
 }
 
 .input_submit:active {
-  transform: scale(0.8);
+  transform: scale(0.3);
   box-shadow: 0 0 5px black;
 }
 
 .todos {
   display: flex;
   justify-content: space-evenly;
-  width: 90%;
+  width: 100%;
   flex-wrap: wrap;
+ 
 }
 
 .todos__single {
@@ -64,6 +66,7 @@
   padding: 5px;
   border: none;
   font-size: 20px;
+  text-align: center;
 }
 
 .todos__single--text:focus {
@@ -71,7 +74,7 @@
 }
 
 .icon {
-  margin-left: 10px;
+  margin-left: 15px;
   font-size: 25px;
   cursor: pointer;
 }

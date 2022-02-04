@@ -11,6 +11,7 @@ interface props {
     const inputRef = useRef<HTMLInputElement>(null);
   
     return (
+      
       <form
         className="input"
         onSubmit={(e) => {

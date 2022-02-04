@@ -5,6 +5,7 @@ import Home from './views/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Services from './views/Services';
 import Products from './views/Products';
+import Weather from './components/Weather/Weather';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
 import {selectUser } from './features/userSlice';
@@ -37,14 +38,11 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/services' element={<Services />} />
           <Route path='/products' element={<Products />} />
+          <Route path='/weather' element={<Weather />} />
           <Route path='/sign-up' element={user ? <Logout/> : <Login/>} />
           <Route path='/todolist' element={
           <><Todolistinput todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
-          <TodoList todos={todos} setTodos={setTodos}/></>
-        
-        
-        
-        
+          <TodoList todos={todos} setTodos={setTodos}/></>  
         }/>
 
           </Routes>
