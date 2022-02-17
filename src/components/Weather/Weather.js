@@ -18,7 +18,21 @@ function Weather() {
       })
       setLocation('')
     }
-  }
+  }/*
+  async function setweather(event){
+    event.preventDefault();
+    const response = await fetch("http://localhost:5000/users",{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        Location,
+      })
+    })
+    const data = await response.json();
+    console.log(data);
+
+  };*/
+  
 
   return (
     <div className="app">
@@ -27,6 +41,7 @@ function Weather() {
           value={location}
           onChange={event => setLocation(event.target.value)}
           onKeyPress={searchLocation}
+          /*onSubmit={function(e){setweather(e)}}*/
           placeholder='Enter City Name'
           type="text" />
       </div>

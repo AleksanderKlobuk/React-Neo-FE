@@ -15,6 +15,7 @@
     margin-bottom:15px ;
     padding-bottom: 10px;
     letter-spacing: -1px;
+    
 }
 
 .login_form >input{
@@ -24,9 +25,14 @@
     margin-bottom: 10px;
     outline: none;
     border: hsl(210, 9%, 4%);
+    border-style:groove;
     font-family: "Inter";
     border-radius: 2px;
     font-size: 15px;
+   
+}
+::placeholder{
+    color:slategray
 }
 
 .submit_btn {
