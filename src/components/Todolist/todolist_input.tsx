@@ -9,13 +9,29 @@ interface props {
   
   const InputField: React.FC<props> = ({ todo, setTodo, handleAdd }) => {
     const inputRef = useRef<HTMLInputElement>(null);
+
+
+
+  async function sendTodo(event:any){
+    event.preventDefault();
+    const response = await fetch("http://localhost:5000/product/create",{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        todo,      
+             
+      })
+    })
+    const data = await response.json();
+    console.log(data);
+  };
   
     return (
       
       <form
         className="input"
         onSubmit={(e) => {
-          handleAdd(e);
+          handleAdd(e);sendTodo(e);
           inputRef.current?.blur();
         }}
       >

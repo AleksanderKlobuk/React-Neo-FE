@@ -12,7 +12,11 @@ const SignUp=()=> {
 
   async function registerUser(event:any){
     event.preventDefault();
-    const response = await fetch("http://localhost:5000/users",{
+    /*"http://localhost:5000/product/create"*/
+     /*"http://localhost:5000/users"*/
+     /*"http://localhost:5000/user1/create"*/
+
+    const response = await fetch("http://localhost:5000/user1/create",{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({

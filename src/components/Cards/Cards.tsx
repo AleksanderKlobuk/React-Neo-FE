@@ -24,7 +24,7 @@ function Cards() {
               src={image2}
               text='Control Your Expenditures'
               label='Budget Planner'
-              path='/products'
+              path='/budget'
             />
           </ul>
           <ul className='cards__items'>
@@ -32,7 +32,7 @@ function Cards() {
               src={image3}
               text='Be Prepared to Shopping and Spend Less'
               label='Shopping List'
-              path='/products'
+              path='/shoppinglist'
             />
             <CardItem
               src={image4}

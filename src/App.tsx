@@ -14,6 +14,14 @@ import { useState } from 'react';
 import { Todo } from './model';
 import Todolistinput from './components/Todolist/todolist_input';
 import TodoList from './components/TodoList2/Todolist';
+import Header from './components/Budget/Header';
+import Balance from './components/Budget/Balance';
+import IncomeList from './components/Budget/IncomeList';
+import ExpenseList from './components/Budget/ExpenseList';
+import AddTransaction from './components/Budget/AddTransaction';
+import { GlobalContextProvider } from './features/GlobalState';
+import ShoppingList from './components/ShoppingList/ShoppingList';
+
 
 function App() {
   const user = useSelector(selectUser)
@@ -30,20 +38,36 @@ function App() {
   console.log(todos);
 
   console.log(todo);
+
   return (
+
+
     <>
       <Router>
-        <Navbar />
+        <Navbar/>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/services' element={<Services />} />
           <Route path='/products' element={<Products />} />
           <Route path='/weather' element={<Weather />} />
+
+          <Route path="/budget" element={ 
+          <GlobalContextProvider>
+            <Header/>
+            <Balance/>
+            <IncomeList/>
+            <ExpenseList/>
+            <AddTransaction/>
+          </GlobalContextProvider>}/>
+
+          <Route path='/shoppinglist' element={<ShoppingList />} />
+
+
+
           <Route path='/sign-up' element={user ? <Logout/> : <Login/>} />
           <Route path='/todolist' element={
           <><Todolistinput todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
-          <TodoList todos={todos} setTodos={setTodos}/></>  
-        }/>
+          <TodoList todos={todos} setTodos={setTodos}/></>}/>
 
           </Routes>
       </Router>
