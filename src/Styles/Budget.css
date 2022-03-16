@@ -1,23 +1,22 @@
+/*fonts*/
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&family=Muli:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&display=swap");
 
 * {
   margin: 0;
   padding: 0;
-}
 
+}/*  FIND BACKGROUND PICTURE WITH WHITE BOARD
+body:not(header){
+  background: url('..//assets/images/bg-budget.jpg') no-repeat center center/cover;
+ 
+}
+*/
 html {
   font-size: 62.5%;
 }
+/*To change*/
 
-.container {
-  width: 100%;
-  height: 100vh;
-  background-color: #77c987;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+/*
 .app-wrapper {
   width: 90%;
   max-width: 150rem;
@@ -39,17 +38,19 @@ html {
   justify-content: center;
   align-items: center;
 }
+*/
 
+/*BUDGET APP HEADER*/
 .header h1 {
   font-family: "Muli", serif;
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
-  color: #f46036;
+  color: #0f0e49;
   text-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.4);
 }
-
+/*BALANCE*/
 .balance {
   grid-column: 1 / 1;
   grid-row: 3 / -1;
@@ -59,43 +60,43 @@ html {
   margin-top: 10rem;
   text-align: center;
 }
-
+/*BALANCE TEXT*/
 .balance h2 {
   font-family: "Baloo Da 2", serif;
-  font-size: 4.5rem;
+  font-size: 6rem;
   font-weight: 300;
   text-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.4);
 }
-
+/*BALANCE VALUE*/
 .balance h3 {
   font-family: "Baloo Da 2", serif;
-  font-size: 4rem;
+  font-size: 6rem;
   font-weight: 300;
   text-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.4);
 }
-
+/*INCOME AND EXPENSE TEXT AND VALUE*/
 .income-expense {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 10rem;
+  margin-top: 3rem;
   font-family: "Muli", serif;
   text-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.4);
   text-align: right;
 }
-
+/*PLUS AND MINUS*/
 .plus,
 .minus {
-  margin: 0 2rem;
+  margin: 0 10rem;
 }
 
 .plus {
-  color: #77c987;
+  color: #61b372;
 }
 
 .minus {
-  color: #ff716e;
+  color: #d64d4b;
 }
-
+/*INCOME AND EXPENSE TEXT*/
 .income-expense h3 {
   font-size: 3.5rem;
   font-weight: 300;
@@ -103,18 +104,21 @@ html {
   width: 100%;
 }
 
+/*INCOME AND EXPENSE VALUE*/
 .income-expense p {
   font-size: 3rem;
   font-weight: 700;
   text-align: center;
 }
-
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 .form-wrapper {
-  grid-column: 2 / -1;
-  grid-row: 2 / 4;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 30% 30%;
   grid-template-rows: repeat(2, 1fr);
+  justify-content: center;
+  text-align: right;
+  
+  
 }
 
 .input-group {
@@ -141,7 +145,7 @@ html {
   padding: 0.5rem 0.5rem 0.5rem 0;
   font-family: "Baloo Da 2", serif;
   font-size: 1.8rem;
-  color: #eee;
+  color: rgb(36, 30, 30);
   outline: none;
   transition: border-bottom 0.4s;
 }
@@ -177,6 +181,10 @@ html {
 
 .income input[type="submit"] {
   background-color: #77c987;
+  
+
+  
+  
 }
 
 .expense input[type="submit"] {
@@ -188,7 +196,13 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .transactions {
-  margin-top: 3rem;
+  grid-column: 1 / 1;
+  grid-row: 2 / -1;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  margin-top: 5rem;
+  text-align: center;
 }
 
 .transactions h2 {
@@ -199,21 +213,14 @@ input[type="number"]::-webkit-inner-spin-button {
   margin-bottom: 2rem;
 }
 
-.transactions-income {
-  grid-column: 2 / 3;
-  grid-row: 5 / -1;
-}
-
-.transactions-expense {
-  grid-column: 3 / -1;
-  grid-row: 5 / -1;
-}
-
 .transaction-list {
   width: 92%;
   max-height: 35rem;
   overflow: hidden;
   overflow-y: auto;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
 }
 
 /* width */
@@ -248,22 +255,27 @@ input[type="number"]::-webkit-inner-spin-button {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
+
+
+
+
+/*ok*/
 .transactions-income .transaction {
   background-color: #5a9b67;
 }
-
+/*ok*/
 .transactions-expense .transaction {
   background-color: #cf5856;
 }
-
+/*ok*/
 .transaction-text {
   width: 23rem;
 }
-
+/*ok*/
 .transaction-amount {
   transform: translateX(3rem);
 }
-
+/*ok*/
 .delete-btn {
   transform: translateX(4rem);
   border: none;
@@ -274,6 +286,7 @@ input[type="number"]::-webkit-inner-spin-button {
   text-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.4);
   cursor: pointer;
   outline: none;
+  
 }
 
 @media (max-width: 1500px) {

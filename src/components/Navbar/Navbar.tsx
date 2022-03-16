@@ -70,7 +70,7 @@ const user = useSelector(selectUser);
 
           </ul>
           {button && <Button buttonStyle='btn--outline' 
-          >{user ? ("Welcome: " + user.name) : "Login Page"} </Button>}
+          >{user ? ("Welcome: " + user.email) : "Login Page"} </Button>}
         </div>
       </nav>
     </>

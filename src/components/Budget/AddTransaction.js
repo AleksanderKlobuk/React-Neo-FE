@@ -2,6 +2,7 @@ import {  useState, useContext } from "react";
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import { GlobalContext } from "../../features/GlobalState";
+import '../../Styles/Budget.css';
 
 
 

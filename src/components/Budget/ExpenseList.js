@@ -2,6 +2,7 @@ import React from "react";
 import  { useContext } from "react";
 import { GlobalContext } from "../../features/GlobalState";
 import ExpenseTransaction from "./ExpenseTransaction";
+import '../../Styles/Budget.css';
 
 
 const ExpenseList = () => {

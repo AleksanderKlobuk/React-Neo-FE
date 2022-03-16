@@ -2,7 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { GlobalContext } from "../../features/GlobalState";
 import IncomeTransaction from "./IncomeTransaction";
-
+import '../../Styles/Budget.css';
 
 const IncomeList = () => {
   const { incomeTransactions } = useContext(GlobalContext);

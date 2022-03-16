@@ -3,6 +3,7 @@ import { Todo } from '../../model';
 import SingleTodo from "../SingleTodo/SingleTodo";
 import "../../Styles/todolist_input.css"
 
+
 interface props {
   todos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;

@@ -1,7 +1,7 @@
 import React from "react";
 import  { useContext } from "react";
 import { GlobalContext } from "../../features/GlobalState";
-
+import '../../Styles/Budget.css';
 
 const ExpenseTransaction = ({ expenseTransaction }) => {
   const { deleteTransaction } = useContext(GlobalContext);

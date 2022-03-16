@@ -42,9 +42,9 @@ function Cards() {
             />
             <CardItem
               src={image5}
-              text='Keep All Website You Need Very Close'
-              label='Favorite Websites'
-              path='/sign-up'
+              text='Be on time with Tech updates'
+              label='Technology News'
+              path='/news'
             />
           </ul>
         </div>

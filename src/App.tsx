@@ -21,6 +21,9 @@ import ExpenseList from './components/Budget/ExpenseList';
 import AddTransaction from './components/Budget/AddTransaction';
 import { GlobalContextProvider } from './features/GlobalState';
 import ShoppingList from './components/ShoppingList/ShoppingList';
+import News from './components/NewsApp/NewsApp';
+import SignIn from './components/Login/SignIn';
+
 
 
 function App() {
@@ -57,14 +60,19 @@ function App() {
             <Balance/>
             <IncomeList/>
             <ExpenseList/>
-            <AddTransaction/>
+            <AddTransaction/>           
           </GlobalContextProvider>}/>
 
-          <Route path='/shoppinglist' element={<ShoppingList />} />
+          <Route path='/shoppinglist' element={< ShoppingList/>} />
+          <Route path='/news' element={< News/>} />
 
 
 
-          <Route path='/sign-up' element={user ? <Logout/> : <Login/>} />
+          <Route path='/login' element={user ? <Logout/> : <Login/>} />
+          <Route path='/signin' element={user ? <Logout/> : <SignIn/>} />
+
+
+
           <Route path='/todolist' element={
           <><Todolistinput todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
           <TodoList todos={todos} setTodos={setTodos}/></>}/>
