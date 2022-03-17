@@ -51,7 +51,7 @@ const SignIn=()=> {
     <div className='login'>
       <form className="login_form" onSubmit={function(e){handleSubmit(e);registerUser(e)}}>
         
-        <h1>🟩You Can Sign In Here🟩</h1>
+        <h1>You Can Sign In Here</h1>
         <input 
         type="name"
         placeholder='Name'

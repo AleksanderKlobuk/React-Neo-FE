@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../Styles/ShoppingList.css'
+
 
 class NewItemForm extends React.Component {
     constructor(props) {

@@ -53,7 +53,7 @@ const SingleTodo: React.FC<{
       )}
       <div>
         <span
-          className="icon"
+          className="todo-icon edit-icon"
           onClick={() => {
             if (!edit && !todo.isDone) {
               setEdit(!edit);
@@ -62,10 +62,10 @@ const SingleTodo: React.FC<{
         >
           <AiFillEdit />
         </span>
-        <span className="icon" onClick={() => handleDelete(todo.id)}>
+        <span className="todo-icon delete-icon" onClick={() => handleDelete(todo.id)}>
           <AiFillDelete />
         </span>
-        <span className="icon" onClick={() => handleDone(todo.id)}>
+        <span className="todo-icon accept-icon" onClick={() => handleDone(todo.id)}>
           <MdDone />
         </span>
       </div>

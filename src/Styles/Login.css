@@ -9,6 +9,7 @@
 .login_form{
     display: flex;
     flex-direction: column;
+    
 }
 .login_form >h1{
     font-size: 35px;
@@ -19,16 +20,18 @@
 }
 
 .login_form >input{
+    background-color: aliceblue;
     min-width: 380px;
     padding: 20px 0 ;
     padding-left: 15px;
     margin-bottom: 10px;
     outline: none;
-    border: hsl(210, 9%, 4%);
+    border:1px solid #80b2e4;
     border-style:groove;
     font-family: "Inter";
     border-radius: 2px;
     font-size: 15px;
+    border-radius:23px;
    
 }
 ::placeholder{
@@ -36,15 +39,31 @@
 }
 
 .submit_btn {
-    padding: 17px 30px;
-    margin-top: 10px;
-    background-color: black;
-    border: none;
-    color: white;
-    font-size: 14px;
-    font-family: "Inter";
-    border-radius: 3px;
+	background:linear-gradient(to bottom, #79bbff 5%, #378de5 70%);
+	background-color:#79bbff;
+	border-radius:24px;
+	border:2px solid #337bc4;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Georgia;
+	font-size:22px;
+	font-weight:bold;
+	font-style:italic;
+	padding:16px 72px;
+	text-decoration:none;
+
 }
+
+.submit_btn:hover {
+	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+	background-color:#378de5;
+}
+.submit_btn:active {
+	position:relative;
+	top:1px;
+}
+
 
 
 
