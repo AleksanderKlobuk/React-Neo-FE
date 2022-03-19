@@ -7,7 +7,7 @@ const STYLES = ['btn--primary', 'btn--outline', 'btn--test'];
 const SIZES = ['btn--medium', 'btn--large'];
 
 interface Props {
-    children?:any,/*Jesli nie czesto bedziemy tworzyc obiekty w ktorych nie bediemy wykorzystywac wszystkich properies to lepiej zapiac je z "?" Typescript nie bedzie wymagac podawania kazdefo property a tylko te ktore sami chcemy. Chyba ze chcemy zeby nam przypominal o brakujacym property*/
+    children?:any,/*Jesli nie czesto bedziemy tworzyc obiekty w ktorych nie bediemy wykorzystywac wszystkich properies to lepiej zapiac je z "?" Typescript nie bedzie wymagac podawania kazdego property a tylko te ktore sami chcemy. Chyba ze chcemy zeby nam przypominal o brakujacym property*/
     type?:any,
     onClick?:any,
     buttonStyle?:any,

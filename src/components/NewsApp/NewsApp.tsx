@@ -3,7 +3,10 @@ import { Card, Button } from "antd";
 import axios from "axios";
 import "../NewsApp/NewsApp.css";
 
+
+
 const { Meta } = Card;
+
 
 function News() {
   const [news, setNews] = useState([]);
@@ -24,7 +27,7 @@ function News() {
     <div className="News">
           
       {news &&
-        news.map((item, index) => {
+        news.map((item:any, index) => {
           return (
             <Card className="newscard"
               key={index}

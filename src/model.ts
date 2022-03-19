@@ -12,3 +12,10 @@ const uniqueId = () => {
 export {
     uniqueId
 }
+
+export interface newsItemTypes {
+    item: {
+      title: String;
+
+    } 
+  }
