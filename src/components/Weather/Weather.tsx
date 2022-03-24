@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import "../../Styles/Weather.css"
 import axios from 'axios'
 
 
-
 function Weather() {
-  const [data, setData] = useState({})
+  const [data, setData] = useState<any>({})
   const [location, setLocation] = useState('')
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=d3d6490e8855971395da8c8e6d7a9447`
@@ -18,24 +17,10 @@ function Weather() {
       })
       setLocation('')
     }
-  }/*
-  async function setweather(event){
-    event.preventDefault();
-    const response = await fetch("http://localhost:5000/users",{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        Location,
-      })
-    })
-    const data = await response.json();
-    console.log(data);
-
-  };*/
+  }
   
-
   return (
-    <div className="app">
+    <div className="app" data-testid="Test-ID">
       <div className="search">
         <input
           value={location}
@@ -78,3 +63,22 @@ function Weather() {
 }
 
 export default Weather;
+
+
+
+
+
+/*
+  async function setweather(event){
+    event.preventDefault();
+    const response = await fetch("http://localhost:5000/users",{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        Location,
+      })
+    })
+    const data = await response.json();
+    console.log(data);
+
+  };*/

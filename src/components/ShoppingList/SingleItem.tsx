@@ -1,6 +1,7 @@
 import React from 'react'
 
-class GroceryItem extends React.Component {
+
+class GroceryItem extends React.Component<any> {
   render() {
     let { item, toggleItem } = this.props
     return (

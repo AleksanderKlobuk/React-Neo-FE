@@ -4,7 +4,6 @@ import axios from "axios";
 import "../NewsApp/NewsApp.css";
 
 
-
 const { Meta } = Card;
 
 

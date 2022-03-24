@@ -1,4 +1,12 @@
-const AppReducer  = (state, action) => {
+
+type ACTIONTYPE = 
+{ 
+  type: 'ADD_INCOME'; payload: string }   | 
+   { type: 'ADD_EXPENSE'; payload: string }  | 
+   { type: 'DELETE_TRANSACTION'; payload: string;  };
+
+  
+const AppReducer= (state, action:ACTIONTYPE) => {
   switch (action.type) {
     case "ADD_INCOME":
       return {

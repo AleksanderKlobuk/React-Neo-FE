@@ -9,16 +9,18 @@ import image5 from '../../assets/images/img-5.jpg'
 
 function Cards() {
   return (
-    <div className='cards'>
+    <div className='cards'data-testid="newsCard" >
       <h1>Check out what you can use to make your day in order!</h1>
-      <div className='cards__container'>
+      <div className='cards__container' >
         <div className='cards__wrapper'>
-          <ul className='cards__items'>
+          <ul className='cards__items' >
             <CardItem
               src={image9}
               text='Show yourself a path to follow during the day'
               label='To Do List'
               path='/todolist'
+              data-testid="Card-Render-Test"
+              
             />
             <CardItem
               src={image2}
@@ -45,6 +47,8 @@ function Cards() {
               text='Be on time with Tech updates'
               label='Technology News'
               path='/news'
+              
+              
             />
           </ul>
         </div>

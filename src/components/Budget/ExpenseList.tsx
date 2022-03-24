@@ -1,12 +1,13 @@
-import React from "react";
+import React, {FC} from "react";
 import  { useContext } from "react";
 import { GlobalContext } from "../../features/GlobalState";
 import ExpenseTransaction from "./ExpenseTransaction";
 import '../../Styles/Budget.css';
+import { BudgetProps } from "../../model";
 
 
-const ExpenseList = () => {
-  const { expenseTransactions } = useContext(GlobalContext);
+const ExpenseList:FC = ():JSX.Element => {
+  const { expenseTransactions } = useContext<BudgetProps>(GlobalContext);
 
   console.log(expenseTransactions);
 

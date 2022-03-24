@@ -1,4 +1,4 @@
-import {  useState, useContext } from "react";
+import {  useState } from "react";
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import { GlobalContext } from "../../features/GlobalState";
@@ -7,7 +7,7 @@ import '../../Styles/Budget.css';
 
 
 const AddTransaction = () => {
-  const { addIncome, addExpense } = useContext(GlobalContext);
+  const { addIncome, addExpense } = React.useContext<any >(GlobalContext);
 
   const [income, setIncome] = useState({
     incomeText: "",
@@ -16,11 +16,11 @@ const AddTransaction = () => {
 
   const { incomeText, incomeAmount } = income;
 
-  const onChangeIncome = (e) => {
+  const onChangeIncome = (e:any) => {
     setIncome({ ...income, [e.target.name]: e.target.value });
   };
 
-  const onSubmitIncome = (e) => {
+  const onSubmitIncome = (e:any) => {
     e.preventDefault();
 
     if (incomeText !== "") {
@@ -46,11 +46,11 @@ const AddTransaction = () => {
 
   const { expenseText, expenseAmount } = expense;
 
-  const onChangeExpense = (e) => {
+  const onChangeExpense = (e:any) => {
     setExpense({ ...expense, [e.target.name]: e.target.value });
   };
 
-  const onSubmitExpense = (e) => {
+  const onSubmitExpense = (e:any) => {
     e.preventDefault();
 
     if (expenseText !== "") {
@@ -70,7 +70,7 @@ const AddTransaction = () => {
   };
 
   return (
-    <div className="form-wrapper">
+    <div className="form-wrapper" data-testid="Card-Render-Test">
       <form onSubmit={onSubmitIncome}>
         <div className="input-group income">
           <input
@@ -80,6 +80,7 @@ const AddTransaction = () => {
             placeholder="Add Income..."
             autoComplete="off"
             onChange={onChangeIncome}
+            data-testid="input-Income-Text"
           />
           <input
             type="number"
@@ -88,8 +89,9 @@ const AddTransaction = () => {
             placeholder="Amount"
             autoComplete="off"
             onChange={onChangeIncome}
+            data-testid="input-Income-Amount"
           />
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" data-testid="Submit-Income-Button" />
         </div>
       </form>
       <form onSubmit={onSubmitExpense}>
@@ -101,6 +103,7 @@ const AddTransaction = () => {
             placeholder="Add Expense..."
             autoComplete="off"
             onChange={onChangeExpense}
+            data-testid="input-Expense-Text"
           />
           <input
             type="number"
@@ -109,8 +112,9 @@ const AddTransaction = () => {
             placeholder="Amount"
             autoComplete="off"
             onChange={onChangeExpense}
+            data-testid="input-Expense-Amount"
           />
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" data-testid="Submit-Expense-Button" />
         </div>
       </form>
     </div>

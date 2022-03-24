@@ -3,7 +3,6 @@ import Navbar from './components/Navbar/Navbar';
 import './Styles/App.css';
 import Home from './views/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Services from './views/Services';
 import Products from './views/Products';
 import Weather from './components/Weather/Weather';
 import Login from './components/Login/Login';
@@ -50,9 +49,10 @@ function App() {
         <Navbar/>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/services' element={<Services />} />
+          <Route path='/services' element={<News />} />
           <Route path='/products' element={<Products />} />
           <Route path='/weather' element={<Weather />} />
+          
 
           <Route path="/budget" element={ 
           <GlobalContextProvider>

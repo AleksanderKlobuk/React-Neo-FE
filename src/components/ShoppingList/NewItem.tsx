@@ -1,7 +1,14 @@
 import React from 'react'
 
+interface NewItemProps{
+  addItem:any,
+}
+interface ItemProps2{
+  itemCount:number
+  itemName:string,
+  }
 
-class NewItemForm extends React.Component {
+class NewItemForm extends React.Component<NewItemProps, ItemProps2> {
     constructor(props) {
       super(props)
 

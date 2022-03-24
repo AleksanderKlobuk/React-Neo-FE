@@ -1,10 +1,12 @@
 import React from "react";
-import  { useContext } from "react";
 import { GlobalContext } from "../../features/GlobalState";
 import '../../Styles/Budget.css';
 
+
+
+
 const IncomeTransaction = ({ incomeTransaction }) => {
-  const { deleteTransaction } = useContext(GlobalContext);
+  const { deleteTransaction } = React.useContext<any>(GlobalContext);
 
   return (
     <li className="transaction">

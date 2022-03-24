@@ -10,8 +10,6 @@ function Navbar() {
 const user = useSelector(selectUser);
 
 
-
-
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -34,13 +32,13 @@ const user = useSelector(selectUser);
 
   return (
     <>
-      <nav className='navbar'>
+      <nav className='navbar' >
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
             Plan Daily
             <i className='fab fa-typo3' />
           </Link>
-          <div className='menu-icon' onClick={handleClick}>
+          <div className='menu-icon' data-testid="Card-Render-Test" onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
@@ -75,6 +73,6 @@ const user = useSelector(selectUser);
       </nav>
     </>
   );
-}
+};
 
 export default Navbar;

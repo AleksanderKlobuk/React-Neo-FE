@@ -1,11 +1,11 @@
 import React from "react";
-import  { useContext } from "react";
 import { GlobalContext } from "../../features/GlobalState";
 import '../../Styles/Budget.css';
+import { BudgetProps } from "../../model";
 
 
-const Balance = () => {
-  const { incomeTransactions, expenseTransactions } = useContext(GlobalContext);
+const Balance= () => {
+  const { incomeTransactions, expenseTransactions } =React.useContext<BudgetProps>(GlobalContext);
 
   const incomeAmounts = incomeTransactions.map(
     incomeTransaction => incomeTransaction.incomeAmount
@@ -16,15 +16,15 @@ const Balance = () => {
   );
 
   const totalIncome = incomeAmounts
-    .reduce((acc, item) => (acc += item), 0)
+    .reduce((acc:number, item:number) => (acc += item), 0)
     .toFixed(2);
 
   const totalExpenses = expenseAmounts
-    .reduce((acc, item) => (acc += item), 0)
+    .reduce((acc:number, item:number) => (acc += item), 0)
     .toFixed(2);
 
   return (
-    <div className="balance">
+    <div className="balance" data-testid= "Balance-Render-Test">
       <h2>Your Balance</h2>
       <h3>${(totalIncome - totalExpenses).toFixed(2)}</h3>
       <div className="income-expense">

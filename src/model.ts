@@ -1,3 +1,4 @@
+
 export interface Todo {
     id:number;
     todo:string;
@@ -13,9 +14,23 @@ export {
     uniqueId
 }
 
-export interface newsItemTypes {
-    item: {
-      title: String;
 
-    } 
-  }
+export interface BudgetProps {
+  expenseTransactions:{
+    expenseTransactions:number,
+    id:any,
+    expenseAmount:any,
+  }[]
+
+  incomeTransactions:{
+    incomeTransaction:Object,
+    id:any,
+    incomeAmount:any,
+  }[]
+
+  incomeTransaction:{
+    incomeTransaction:number,
+    id:any,
+    expenseAmount:number, 
+  }[]
+}
