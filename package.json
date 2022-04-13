@@ -2,10 +2,11 @@
   "name": "react-website-neo",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3002/", 
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.0.0",
     "@material-ui/core": "^4.12.3",
-    "@reduxjs/toolkit": "^1.7.1",
+    "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/user-event": "^12.8.3",
     "@types/uuid": "^8.3.4",
@@ -59,6 +60,5 @@
     "redux-devtools-instrument": "^1.10.0",
     "redux-mock-store": "^1.5.4",
     "url-loader": "^4.1.1"
-  },
-  "proxy": "http://localhost:5000/users"
+  }
 }

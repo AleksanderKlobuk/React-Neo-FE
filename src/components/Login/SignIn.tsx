@@ -1,40 +1,31 @@
-/*import axios from 'axios';*/
 import React, {useState} from 'react';
-import { useDispatch } from 'react-redux';
+/*import { useDispatch } from 'react-redux';*/
+import { useAppDispatch } from '../../app/hooks';
+import { useLoginMutation } from '../../apis/auth.api';
+import { useCreateUserMutation } from '../../apis/users.api';
+import { User } from '../../models/User';
 import { login } from '../../features/userSlice';
 import "../../Styles/Login.css"
+import {useNavigate } from 'react-router';
+import { setAuthState } from '../../slices/auth.slice';
 export {}
+
 const SignIn=()=> {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [createUser] = useCreateUserMutation();/*CONNECTING TO BACKEND */
+  /*const dispatch = useDispatch();*/
 
-  async function registerUser(event:any){
-    event.preventDefault();
-    /*"http://localhost:5000/product/create"*/
-     /*"http://localhost:5000/users"*/
-     /*"http://localhost:5000/user1/create"*/
+  const [loginuser] =useLoginMutation();
+  const navigate = useNavigate(); 
+  const dispatch = useAppDispatch();
 
-    const response = await fetch("http://localhost:5000/user1/create",{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        name,
-        email,
-        password
-      })
-    })
-    const data = await response.json();
-    console.log(data);
 
-  };
-  
-  const dispatch = useDispatch();
-
-  const handleSubmit = (e:any) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
-    /*axios.post("http://localhost:5000/users",{name:name,email:email,password:password});*/
+    
  
     dispatch(
       login({
@@ -44,12 +35,21 @@ const SignIn=()=> {
         loggedIn:true,
       })
     );
+    try{
+      await createUser({email, password}) /*CONNECTING TO BACKEND */
+      const response = (await loginuser({email,password})) as {data:User};
+      dispatch(setAuthState({user:response.data}));
+      navigate("/");
+    } catch (err){
+      console.error(err);
+    }
+    
   };
   
 
   return(
     <div className='login'>
-      <form className="login_form" onSubmit={function(e){handleSubmit(e);registerUser(e)}}>
+      <form className="login_form" onSubmit={function(e){handleSubmit(e)}}>
         
         <h1>You Can Sign In Here</h1>
         <input 

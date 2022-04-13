@@ -2,7 +2,8 @@ import React from 'react';
 import Login  from './../../App';
 import * as ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import store from './../../app/store';
+/*import store from './../../app/store';*/
+import {store} from './../../app/store';
 
 
 describe('Login component tests', () => {

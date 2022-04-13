@@ -34,7 +34,7 @@ const Balance= () => {
         </div>
         <div className="minus">
           <h3>Expenses</h3>
-          <p>-${totalExpenses}</p>
+          <p role="contentinfo">-${totalExpenses}</p>
         </div>
       </div>
     </div>

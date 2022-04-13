@@ -1,11 +1,28 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore,ThunkAction, Action } from "@reduxjs/toolkit";
+import { authApi } from "../apis/auth.api";
+import { usersApi } from "../apis/users.api";
 import  useReducer from "../features/userSlice"
+import auth from "../slices/auth.slice";
 
 
 
-export default configureStore({
+export const store = configureStore({
     reducer:{
+        [usersApi.reducerPath]:usersApi.reducer,
+        [authApi.reducerPath]: authApi.reducer,
         user:useReducer,
-    }
+        auth,
+    },
+    middleware:(getDefaultMiddleware)=>
+    getDefaultMiddleware().concat(usersApi.middleware).concat(authApi.middleware)
+
 });
 
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  unknown,
+  Action<string>
+>;

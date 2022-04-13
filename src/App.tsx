@@ -8,7 +8,7 @@ import Weather from './components/Weather/Weather';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
 import {selectUser } from './features/userSlice';
-import {useSelector} from "react-redux"
+import {useSelector} from "react-redux";
 import { useState } from 'react';
 import { Todo } from './model';
 import Todolistinput from './components/Todolist/todolist_input';
@@ -22,11 +22,12 @@ import { GlobalContextProvider } from './features/GlobalState';
 import ShoppingList from './components/ShoppingList/ShoppingList';
 import News from './components/NewsApp/NewsApp';
 import SignIn from './components/Login/SignIn';
-
+import { ProtectedRoute } from './protected-route.component';
+import NonLoggedHome from './views/UnlogedHome';
 
 
 function App() {
-  const user = useSelector(selectUser)
+  const user = useSelector(selectUser);
   const [todo, setTodo] = useState<string>("");
   const [todos, setTodos] = useState<Todo[]>([]);
 
@@ -45,11 +46,21 @@ function App() {
 
 
     <>
-      <Router>
-        <Navbar/>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/services' element={<News />} />
+        <Router>
+         <Navbar/>
+         <Routes>
+
+         <Route path='/dummy1' element={user ? <Home/> : <NonLoggedHome/>} />
+          
+          <Route path='/dummy2' element={
+          <ProtectedRoute>
+          <Home />
+          </ProtectedRoute>} />        
+
+          <Route path='/' element={user ? <Home/> : <NonLoggedHome />} />
+          
+
+
           <Route path='/products' element={<Products />} />
           <Route path='/weather' element={<Weather />} />
           

@@ -1,8 +1,12 @@
-/*import axios from 'axios';*/
 import React, {useState} from 'react';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+/*import { useDispatch } from 'react-redux';*/
+import { useAppDispatch } from '../../app/hooks';
+import { Link} from 'react-router-dom';
+import {useNavigate } from 'react-router';
+import { useLoginMutation } from '../../apis/auth.api';
 import { login } from '../../features/userSlice';
+import { User } from '../../models/User';
+import { setAuthState } from '../../slices/auth.slice';
 import "../../Styles/Login.css"
 export {}
 const Login=()=> {
@@ -10,50 +14,39 @@ const Login=()=> {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
-  async function registerUser(event:any){
-    event.preventDefault();
-    /*"http://localhost:5000/product/create"*/
-     /*"http://localhost:5000/users"*/
-     /*"http://localhost:5000/user1/create"*/
-
-    const response = await fetch("http://localhost:5000/user1/create",{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-       
-        email,
-        password
-      })
-    })
-    const data = await response.json();
-    console.log(data);
-
-  };
+  const [userlogin] = useLoginMutation();/*Send to backend*/
+  const navigate = useNavigate(); /*Using navigate to navigaye to homepage once loggedin */
   
-  const dispatch = useDispatch();
-
-  const handleSubmit = (e:any) => {
+  
+ /* const dispatch = useDispatch();bylo useDispatch */
+  const dispatch = useAppDispatch();
+  const handleSubmit = async (e:any) => {
+    
     e.preventDefault();
-    /*axios.post("http://localhost:5000/users",{name:name,email:email,password:password});*/
- 
     dispatch(
       login({
-        
         email:email,
         password:password,
-        loggedIn:true,
-      })
+        loggedIn:true
+      }),
     );
+    try{
+      const response = (await userlogin({email, password})) as {data:User}/*Send to backend*/
+      dispatch(setAuthState({user:response.data}));
+
+      
+      navigate('/') /*Przeniesie na na Home gdy sie zalogujemy */
+    } catch (err){
+      console.error(err);
+    }
+    
   };
   
-
   return(
     <div className='login'>
-      <form className="login_form" onSubmit={function(e){handleSubmit(e);registerUser(e)}}>
+      <form className="login_form" onSubmit={function(e){handleSubmit(e)}}>
         
         <h1>You Can Login Here</h1>
-
         
         <input type="email"
         placeholder='Email'
