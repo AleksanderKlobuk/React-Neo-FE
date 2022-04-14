@@ -38,8 +38,6 @@ function App() {
     setTodos([...todos,{id:Date.now(), todo, isDone:false}])
     setTodo("")};
   };
-  console.log(todos);
-
   console.log(todo);
 
   return (

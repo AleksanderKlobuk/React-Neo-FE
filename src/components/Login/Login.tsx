@@ -8,7 +8,7 @@ import { login } from '../../features/userSlice';
 import { User } from '../../models/User';
 import { setAuthState } from '../../slices/auth.slice';
 import "../../Styles/Login.css"
-export {}
+
 const Login=()=> {
 
   const [email, setEmail] = useState("");
@@ -21,7 +21,7 @@ const Login=()=> {
  /* const dispatch = useDispatch();bylo useDispatch */
   const dispatch = useAppDispatch();
   const handleSubmit = async (e:any) => {
-    
+      console.log("submit")
     e.preventDefault();
     dispatch(
       login({

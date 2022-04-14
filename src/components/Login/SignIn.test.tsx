@@ -1,28 +1,66 @@
 import React from 'react';
-import SignIn  from './../../App';
 import * as ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-import {store} from './../../app/store';
+import SignIn from './SignIn';
+import '@testing-library/jest-dom'
+import { render, fireEvent, server } from "../../test-utils";
+import { store } from '../../app/store';
+import { act, waitFor } from '@testing-library/react';
+import { DefaultResponseResolver, mockHandler } from "msw-expect";
+import { rest } from "msw";
+
+
+beforeAll(() => server.listen())
+afterEach(() => server.resetHandlers())
+afterAll(() => server.close())
 
 
 describe('SignIn component tests', () => {
-
-    let container: HTMLDivElement
-
-    beforeEach(() => {
-        container = document.createElement('div');
-        document.body.appendChild(container);
-        ReactDOM.render(<Provider store={store}><SignIn/></Provider>, container);
-    })
-
-    afterEach(() => {
-        document.body.removeChild(container);
-        container.remove();
-    })
-
-    it('Renders Sign In Input', () => {
-        const inputs = container.querySelectorAll('input');
-        expect(inputs.length).toBe(1);
-
+    it('Renders Sign In Inputs', () => {
+        render(<SignIn />);
+        expect(document.querySelectorAll("input").length).toBe(3);
     });
+
+    it('SignIn request is sent', async () => {
+        const fn = jest.fn();
+        server.use(
+          rest.post(
+            "/users/",
+            fn
+          )
+        );
+
+        const { getByText, getByPlaceholderText } = render(<SignIn />); 
+        fireEvent.change(getByPlaceholderText("Email"), { target: { value: "Test" } });
+        fireEvent.click(getByText(/Submit/));
+
+        await waitFor(() => expect(fn.mock.calls[0][0].body).toEqual({
+            email: "Test",
+            password: ""
+        }));
+        // expect(fn.mock.calls[0]).toEqual({});
+        await waitFor(() => expect(store.getState().auth?.user).toEqual({email: "Test"}));
+    }); 
+
+    it('SignIn request is sent with mockHandler', async () => {
+        const handler = mockHandler((req, res, ctx) => {
+            res(ctx.json({email: "Test"}));
+        });
+        server.use(
+          rest.post(
+            "/users/",
+            handler as DefaultResponseResolver
+          )
+        );
+            
+        const { getByText, getByPlaceholderText } = render(<SignIn />); 
+        fireEvent.change(getByPlaceholderText("Email"), { target: { value: "Test" } });
+        fireEvent.click(getByText(/Submit/));
+
+        await waitFor(() => expect((handler.getRequest() as any).body).toEqual({
+            email: "Test",
+            password: ""
+        }));
+        await waitFor(() => expect(store.getState().auth?.user).toEqual({email: "Test"}));
+    }); 
 });
+ 

@@ -1,30 +1,34 @@
 import React from 'react';
-import Login  from './../../App';
-import * as ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-/*import store from './../../app/store';*/
-import {store} from './../../app/store';
+import '@testing-library/jest-dom'
+import { render, fireEvent, server } from "../../test-utils";
+import Login from "./Login";
+import { store } from '../../app/store';
+import { act, waitFor } from '@testing-library/react';
 
+
+beforeAll(() => server.listen())
+afterEach(() => server.resetHandlers())
+afterAll(() => server.close())
 
 describe('Login component tests', () => {
-
-    let container: HTMLDivElement
-
-    beforeEach(() => {
-        container = document.createElement('div');
-        document.body.appendChild(container);
-        ReactDOM.render(<Provider store={store}><Login/></Provider>, container);
-    })
-
-    afterEach(() => {
-        document.body.removeChild(container);
-        container.remove();
-    })
-
     it('Renders Login Input', () => {
-        const inputs = container.querySelectorAll('input');
-        expect(inputs.length).toBe(1);
+        render(<Login />);
+        expect(document.querySelectorAll("input").length).toBe(2);
+    });
 
+    it('Login Input has correct placeholder', () => {
+        render(<Login />);
+        expect(document.querySelector("input")?.getAttribute("placeholder")).toBe("Email");
+    });
+
+    it('Login request is sent', () => {
+        act(() => {
+            const { getByText, getByPlaceholderText } = render(<Login />);
+            fireEvent.change(getByPlaceholderText("Email"), { target: { value: "Test" } });
+            fireEvent.click(getByText(/Submit/));
+        });
+
+        waitFor(() => expect(store.getState().auth?.user).toEqual({email: "Test"}));
     });
 });
 
