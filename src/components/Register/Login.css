@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+.loginH1{
+    color: #fff;
+    font-size: 30px; 
+}
+
+.loginLabel {
+    color:#fff;
+    font-size: 18px;
+}
+.loginP{
+    padding-top: 30px ;
+    font-size: 14px;
+    color: aqua;
+}
+.loginApp{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+  padding: 1rem 0.5rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 30px;
+  background-color: rgb(92, 92, 227);
+}
+
+.loginSection {
+    width: 100%;
+    max-width: 340px;
+    min-height: 300px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 5rem;
+    background-color: rgba(19, 74, 183, 0.4);
+    border-radius: 15px;
+}
+
+.loginInput,
+textarea {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  padding: 1rem;
+  border-radius: 3rem;
+  width: fit-content; 
+}
+
+.loginButton {
+  margin-top: 2rem;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: auto;
+  font-size: 18px;
+
+  
+}
+
+.instructions {
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    background: #000;
+    color: #fff;
+    padding: 0.25rem;
+    position: relative;
+    bottom: -10px;
+}
+
+.errmsg {
+    background-color: lightpink;
+    color: firebrick;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
+}
+
+

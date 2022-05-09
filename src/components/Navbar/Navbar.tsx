@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { selectUser } from '../../features/userSlice';
 
 
+
 function Navbar() {
 const user = useSelector(selectUser);
 
@@ -27,6 +28,7 @@ const user = useSelector(selectUser);
   useEffect(() => {
     showButton();
   }, []);
+  
 
   window.addEventListener('resize', showButton);
 
@@ -49,26 +51,27 @@ const user = useSelector(selectUser);
             </li>
             <li className='nav-item'>
               <Link
-                to='/services'
+                to='/create_account'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Services
+                Create Account!
               </Link>
             </li>
             <li className='nav-item'>
-              <Link
-                to='/products'
+            <Link
+                to='/login'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Products
+                {user ? 'Click to Logout':'Sign In'}
               </Link>
+
             </li>
 
           </ul>
           {button && <Button buttonStyle='btn--outline' 
-          >{user ? ("Welcome: " + user.email) : "Login Page"} </Button>}
+          >{ user ? ("Welcome: SPRAWDZ CO NIE TAK "/*+ user.email */) : "Login Page"} </Button>}
         </div>
       </nav>
     </>

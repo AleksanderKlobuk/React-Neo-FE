@@ -3,7 +3,6 @@ import { GlobalContext } from "../../features/GlobalState";
 import '../../Styles/Budget.css';
 import { BudgetProps } from "../../model";
 
-
 const Balance= () => {
   const { incomeTransactions, expenseTransactions } =React.useContext<BudgetProps>(GlobalContext);
 

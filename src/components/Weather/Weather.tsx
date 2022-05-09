@@ -37,12 +37,12 @@ function Weather() {
             {data.weather ? <p>Condition: {data.weather[0].main}</p> : null}
           </div>
           <div className="temp">
-            {data.main ? <h1>Temperature: {data.main.temp.toFixed()}°C</h1> : null}
+            {data.main ? <p>Temperature: {data.main.temp.toFixed()}°C</p> : null}
           </div>
         </div>
 
         {data.name !== undefined &&
-          <div className="right">
+          <div className="bottom">
             <div className="feels">
               {data.main ? <p className='bold'>{data.main.feels_like.toFixed()}°C</p> : null}
               <p>Feels Like</p>

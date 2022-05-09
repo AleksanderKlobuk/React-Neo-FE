@@ -1,3 +1,4 @@
+/*import axios from "axios";*/
 import React, { useEffect, useState } from "react";
 import { useRef } from "react";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
@@ -9,10 +10,10 @@ const SingleTodo: React.FC<{
   todos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 }> = ({ todo, todos, setTodos }) => {
-  const [edit, setEdit] = useState<boolean>(false);
-  const [editTodo, setEditTodo] = useState<string>(todo.todo);
+  const [edit, setEdit,] = useState<boolean>(false);
+  const [editTodo, setEditTodo,] = useState<string>(todo.todo);
 
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null,);
   useEffect(() => {
     inputRef.current?.focus();
   }, [edit]);
@@ -25,15 +26,38 @@ const SingleTodo: React.FC<{
     setEdit(false);
   };
 
+
+/*
+  async function deleteTodo(todo){
+    const response = await fetch('http://localhost:3002/todos/{todo}',{
+      method:'DELETE',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        todo,      
+             
+      })
+    })
+    const data = await response.json();
+    console.log(data);
+  };*/
+
+  
   const handleDelete = (id: number) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+    setTodos(todos.filter((todo) => todo.id !== id))
+    console.log(id,("idd"))
+    console.log(todo,('To jest TODO'))
+    /*axios.delete(`http://localhost:3002/todos/:todo${id}`)*/
+;
+
+    /*deleteTodo(todo);*/
   };
 
   const handleDone = (id: number) => {
     setTodos(
       todos.map((todo) =>
         todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
-      )
+        
+      ) 
     );
   };
 

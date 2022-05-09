@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+//To use user? in App. We will receive these states from LoginPage, Register and Logout
 export const userSlice = createSlice({
     name: 'user',
     initialState: {

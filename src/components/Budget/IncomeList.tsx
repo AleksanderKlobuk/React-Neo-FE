@@ -4,10 +4,6 @@ import IncomeTransaction from "./IncomeTransaction";
 import '../../Styles/Budget.css';
 import { BudgetProps } from "../../model";
 
-
-
-
-
 const IncomeList  = () => {
   const { incomeTransactions } = React.useContext<BudgetProps>(GlobalContext);
 

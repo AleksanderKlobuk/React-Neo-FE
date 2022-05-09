@@ -2,9 +2,6 @@ import React from "react";
 import { GlobalContext } from "../../features/GlobalState";
 import '../../Styles/Budget.css';
 
-
-
-
 const IncomeTransaction = ({ incomeTransaction }) => {
   const { deleteTransaction } = React.useContext<any>(GlobalContext);
 
